@@ -1,1 +1,1 @@
-web: gunicorn Candidates.wsgi --log-file -
+web: gunicorn Candidates.wsgi
