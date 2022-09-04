@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Keep the footer always down */
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer, .push {
+    height: 50px;
+}
+
+.my-btn {
+    width: 90px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.text-break, .input-group-text {
+    font-size: 13px !important;
+}
+
+.f-size {
+    font-size: 26px;
+}

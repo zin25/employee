@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+<!-- Block Title -->
+{% block title %}All Candidate{% endblock title %}
+
+<!--Navbar-->
+{% block navbar %} bg-dark {% endblock navbar %}
+{% block nav-content %}
+<i class="fas fa-cog"></i>&nbsp;&nbsp; Administrator
+{% endblock nav-content %}
+
+
+<!--Page Content-->
+{% block content %}
+<div class="container" style="width: 90%; font-size:14px">
+
+    <!--Button-->
+    <a href="{% url 'logout' %}" class="btn btn-outline-danger mt-3 mb-3 my-btn">Log out</a>
+
+    <!-- Header (title)-->
+    <h6 class="card p-2 bg-secondary text-light text-center mb-3">List of Candidates</h6>
+
+    <!--Table-->
+    <table class="table table-bordered text-center">
+      <thead class="table-secondary">
+        <tr>
+          <th style="width: 21%;">Name</th>
+          <th style="width: 21%;">Email</th>
+          <th style="width: 20%;">Phone</th>
+          <th style="width: 11%;">Gender</th>
+          <th style="width: 11%;">Occupation</th>
+          <th style="width: 11%;">Experience</th>
+          <th colspan="2" style="width: 5%; ">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Get data from backend-->
+        {% for data in data_read %}
+        <tr>
+          <td>{{ data.firstname }} {{ data.lastname }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.phone }}</td>
+          <td>{{ data.gender }}</td>
+          <!--Statement Occuption-->
+          {% if data.job == 'FR-22' %}
+          <td>Frontend</td>
+          {% elif data.job == 'BA-10' %}
+          <td>Backend</td>
+          {% else %}
+          <td> Fullstack </td>
+          {% endif %}
+
+          <!--Statement Experience-->
+          {% if data.experience == False %}
+          <td class="text-danger">No</td>
+          {% else %}
+          <td> Yes </td>
+          {% endif %}
+
+
+          <td class="bg-secondary">
+            <a href="{% url 'candidate' data.id %}" class="btn btn-outline-secondary btn-sm text-light">
+            <i class="fas fa-user"></i>
+          </a>
+          </td>
+          {% empty %}
+          <td colspan="6" class="text-danger"><strong>No data found</strong></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+</div>
+{% endblock content %}

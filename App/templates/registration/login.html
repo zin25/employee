@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<!-- Block Title -->
+{% block title %}Login{% endblock title %}
+
+<!--Navbar-->
+{% block nav-content %}
+<i class="fas fa-key"></i>&nbsp;&nbsp; Login
+{% endblock nav-content %}
+
+<!--Page Content-->
+{% block content %}
+<div class="container card p-3 border-dark mt-5" style="width: 30%">
+  <!-- Error Message from backend -->
+  {% if form.errors %}
+      <div class="alert alert-danger alert-dismissible fade show text-center" {{ message.tags }} role="alert"><strong> Insert Data correctly </strong></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  {% endif %}
+  <!-- Title -->
+  <a class="btn btn-dark mb-4" style="cursor: default;">
+    <i class="fas fa-lock"></i>&nbsp;&nbsp; Restricted Access
+  </a>
+  <!--Form-->
+  <form method="POST" autocomplete="off" novalidate>
+    {% csrf_token %}
+    {{ form.username|as_crispy_field }}
+    {{ form.password|as_crispy_field }}
+    <br><hr>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary"> Log In </button>
+      <a href="{% url 'home' %}" class="btn btn-secondary"> Cancel </a>
+    </div>
+  </form>
+</div><!--END-->
+{% endblock content %}
