@@ -106,12 +106,12 @@ class Candidate(models.Model):
   company_note = models.TextField(blank=True)
   # MultiselectField Checkbox
   # SKills Card 2
-  frameworks = MultiSelectField(choices=FRAMEWORKS, default="")
-  languages = MultiSelectField(choices=LANGUAGES, default="")
-  databases = MultiSelectField(choices=DATABASES, default="")
-  libraries = MultiSelectField(choices=LIBRARIES, default="")
-  mobile = MultiSelectField(choices=MOBILE, default="")
-  others = MultiSelectField(choices=OTHERS, default="")
+  frameworks = MultiSelectField(choices=FRAMEWORKS)
+  languages = MultiSelectField(choices=LANGUAGES)
+  databases = MultiSelectField(choices=DATABASES)
+  libraries = MultiSelectField(choices=LIBRARIES)
+  mobile = MultiSelectField(choices=MOBILE)
+  others = MultiSelectField(choices=OTHERS)
 
   # Education Card 3
   institution = models.CharField(max_length=50)
