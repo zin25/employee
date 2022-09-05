@@ -9,5 +9,5 @@ password : 123
 for accept the candidates and change the status "pending" to "accept" or "reject"
 Go to : https://djangoemployed.herokuapp.com/admin
 
-if you won't running in local server 127.0.0.1:8000
+if you won't running in local server 127.0.0.1:8000 and for accept the candidates go 127.0.0.1:8000/admin
 dont forget install requierment.txt
