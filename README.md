@@ -2,7 +2,9 @@
 
 https://djangoemployed.herokuapp.com Live on heroku
 
-for login you can use superuser account
+for create new employe click on Registation : https://djangoemployed.herokuapp.com/register
+
+for login you can use superuser account to see all data candidate
 username : admin
 password : 123
 
